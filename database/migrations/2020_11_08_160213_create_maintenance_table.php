@@ -15,8 +15,24 @@ class CreateMaintenanceTable extends Migration
     {
         Schema::create('maintenance', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
+            $table->bigIncrements('locataire_id')->nullable()->index();
+            $table->string('appartement_id')->nullable();
+            $table->string('honoraire')->nullable();
             $table->timestamps();
         });
+        Schema::table('maintenance', function ($table) {
+            $table->foreign('locataire_id')->references('id')
+            ->on('locataire')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign('appartement_id')->references('noma')
+            ->on('appartement')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+        });
+
     }
 
     /**
@@ -26,6 +42,8 @@ class CreateMaintenanceTable extends Migration
      */
     public function down()
     {
+        // Schema::dropForeign(['locataire_id']);
+        // Schema::dropForeign(['appartement_id']);
         Schema::dropIfExists('maintenance');
     }
 }
