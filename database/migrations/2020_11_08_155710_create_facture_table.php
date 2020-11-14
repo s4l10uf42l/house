@@ -14,11 +14,11 @@ class CreateFactureTable extends Migration
     public function up()
     {
         Schema::create('facture', function (Blueprint $table) {
-            $table->id();
+            // $table->id()->unique();
             $table->string('type');
             $table->string('profession');
-            $table->bigIncrements('locataire_id')->nullable()->index();
-            $table->string('appartement_id')->nullable();
+            $table->id('locataire_id')->unique();
+            $table->string('appartement_id')->unique();
             $table->string('mois')->nullable();
             $table->string('numb_jour')->nullable();
             $table->timestamps();

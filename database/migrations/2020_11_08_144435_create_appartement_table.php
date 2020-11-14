@@ -23,6 +23,7 @@ class CreateAppartementTable extends Migration
         });
     }
 
+    
     /**
      * Reverse the migrations.
      *

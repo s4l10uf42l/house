@@ -14,11 +14,10 @@ class CreateMaintenanceTable extends Migration
     public function up()
     {
         Schema::create('maintenance', function (Blueprint $table) {
-            $table->id();
             $table->string('type');
-            $table->bigIncrements('locataire_id')->nullable()->index();
-            $table->string('appartement_id')->nullable();
-            $table->string('honoraire')->nullable();
+            $table->id('locataire_id')->unique();
+            $table->string('appartement_id')->unique();
+            $table->string('honoraire');
             $table->timestamps();
         });
         Schema::table('maintenance', function ($table) {
