@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
     <div class="jumbotron">
-        <h1>Forum App</h1>
+        <h1> VILLA 211 </h1>
         <p class="lead">
-            This is a simple web application developed with Laravel PHP Framework. <br>
-            It is made for educational purpose at <a href="https://daredevops.com">Dare DevOps</a>
+        Bienvenu sur la platform de gestion des appartements.
+        
         </p>
-    <a class="btn btn-lg btn-primary" href="{{route('posts.index')}}" role="button">Browse Posts &raquo;</a>
+    <a class="btn btn-lg btn-primary" href="{{route('house.appartement')}}" role="button"> Se connecter &raquo;</a>
     </div>
 </div>
 @endsection

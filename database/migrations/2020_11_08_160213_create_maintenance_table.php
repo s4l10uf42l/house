@@ -18,6 +18,7 @@ class CreateMaintenanceTable extends Migration
             $table->id('locataire_id')->unique();
             $table->string('appartement_id')->unique();
             $table->string('honoraire');
+            $table->string('materiel');
             $table->timestamps();
         });
         Schema::table('maintenance', function ($table) {

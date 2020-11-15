@@ -3,6 +3,7 @@
 @section('content')
 
 
+
 <div class="row justify-content-center" > 
 <div class="card" style="width: 50rem;">
   <div class="card-body">
@@ -12,7 +13,7 @@
       <div class="col-md-8">
           <h4 class="text-center">Ajouter un nouveau locataire</h4>
           <hr>
-      <form action="{{route('store.costumer')}}" method="POST">
+      <form action="{{route('store.appartement')}}" method="POST">
         @csrf
         <div class="form-group">
                 <label>Appartement </label>
@@ -60,7 +61,7 @@
             </div>
 
             <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-block" value="Submit The Post">
+                <input type="submit" class="btn btn-primary btn-block" value=" Enregister">
             </div>
             </form>
       </div>
@@ -69,5 +70,7 @@
   </div>
 </div>
 </div>
+
+
 
 @endsection

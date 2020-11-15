@@ -30,12 +30,20 @@ Route::group(['middleware' => ['auth']], function () {
    Route::delete('posts/{post}/destroy', 'PostController@destroy')->name('posts.destroy');
    Route::patch('posts/{post}/update', 'PostController@update')->name('posts.update');
 
+   // Form 
+   Route::get('add_appartement', 'HouseController@add_appartement')->name('appartement.form');
+   Route::post('add_appartement', 'HouseController@store_appartement')->name('store.appartement');
+
+   Route::get('add_facture', 'HouseController@add_facture')->name('facture.form');
+   Route::post('add_facture', 'HouseController@store_facture')->name('store.facture');
+
+   Route::get('add_maintenance', 'HouseController@add_maintenance')->name('maintenance.form');
+   Route::post('add_maintenance', 'HouseController@store_maintenance')->name('store.maintenance');
+
    Route::get('appartement', 'HouseController@appartement')->name('house.appartement');
    Route::get('facture', 'HouseController@facture')->name('house.facture');
    Route::get('maintenance', 'HouseController@maintenance')->name('house.maintenance');
    Route::get('historique', 'HouseController@historique')->name('house.historique');
-   Route::get('add_costumer', 'HouseController@add_costumer')->name('add_costumer');
-   Route::post('posts', 'PostController@store')->name('store.costumer');
 
 });
 
