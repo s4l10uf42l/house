@@ -34,17 +34,24 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                            <a class="nav-link" href="{{ route('house.appartement') }}"><strong>Appartement</strong></a>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('posts.index') }}"><strong>Posts</strong></a>
+                            <a class="nav-link" href="{{ route('house.facture') }}"><strong> Facture</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('house.maintenance') }}"><strong>Maintenance </strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('house.historique') }}"><strong> Historique</strong></a>
                         </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('posts.create') }}"><strong>Add a Post</strong></a>
-                        </li>
+
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}"><strong>{{ __('Login') }}</strong></a>

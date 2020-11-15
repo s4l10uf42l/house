@@ -70,12 +70,4 @@
 </div>
 </div>
 
-           $table->string('prenom');
-            $table->string('nom');
-            $table->string('date-naissance');
-            $table->string('lieu-naissance');
-            $table->string('appartement_id')->nullable();
-            $table->string('profession');
-            $table->string('contact');
-
 @endsection

@@ -30,10 +30,10 @@ Route::group(['middleware' => ['auth']], function () {
    Route::delete('posts/{post}/destroy', 'PostController@destroy')->name('posts.destroy');
    Route::patch('posts/{post}/update', 'PostController@update')->name('posts.update');
 
-   Route::get('appartement', 'HouseController@create')->name('appartement');
-   Route::get('facture', 'HouseController@create')->name('facture');
-   Route::get('maintenance', 'HouseController@create')->name('maintenance');
-   Route::get('historique', 'HouseController@create')->name('historique');
+   Route::get('appartement', 'HouseController@appartement')->name('house.appartement');
+   Route::get('facture', 'HouseController@facture')->name('house.facture');
+   Route::get('maintenance', 'HouseController@maintenance')->name('house.maintenance');
+   Route::get('historique', 'HouseController@historique')->name('house.historique');
    Route::get('add_costumer', 'HouseController@add_costumer')->name('add_costumer');
    Route::post('posts', 'PostController@store')->name('store.costumer');
 
