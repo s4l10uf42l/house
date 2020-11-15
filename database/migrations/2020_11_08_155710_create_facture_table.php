@@ -13,7 +13,7 @@ class CreateFactureTable extends Migration
      */
     public function up()
     {
-        Schema::create('facture', function (Blueprint $table) {
+        Schema::create('factures', function (Blueprint $table) {
             // $table->id()->unique();
             $table->string('type');
             $table->string('profession');
@@ -24,7 +24,7 @@ class CreateFactureTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('facture', function ($table) {
+        Schema::table('factures', function ($table) {
             $table->foreign('locataire_id')->references('id')
             ->on('locataire')
             ->onDelete('cascade')
@@ -46,6 +46,6 @@ class CreateFactureTable extends Migration
     {
         // Schema::dropForeign(['locataire_id']);
         // Schema::dropForeign(['appartement_id']);
-        Schema::dropIfExists('facture');
+        Schema::dropIfExists('factures');
     }
 }

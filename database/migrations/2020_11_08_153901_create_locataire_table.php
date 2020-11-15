@@ -13,7 +13,7 @@ class CreateLocataireTable extends Migration
      */
     public function up()
     {
-        Schema::create('locataire', function (Blueprint $table) {
+        Schema::create('locataires', function (Blueprint $table) {
             
             $table->id()->unique();
             $table->string('prenom');
@@ -28,7 +28,7 @@ class CreateLocataireTable extends Migration
         });
 
 
-    Schema::table('locataire', function ($table) {
+    Schema::table('locataires', function ($table) {
         $table->foreign('appartement_id')->references('noma')
         ->on('appartement')
         ->onDelete('cascade')
@@ -44,6 +44,6 @@ class CreateLocataireTable extends Migration
     public function down()
     {       
         // Schema::dropForeign(['appartement_id']);
-        Schema::dropIfExists('locataire');
+        Schema::dropIfExists('locataires');
     }
 }

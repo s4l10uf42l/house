@@ -40,7 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
    Route::get('add_maintenance', 'HouseController@add_maintenance')->name('maintenance.form');
    Route::post('add_maintenance', 'HouseController@store_maintenance')->name('store.maintenance');
 
-   Route::get('appartement', 'HouseController@appartement')->name('house.appartement');
+   Route::get('appartement}', 'HouseController@appartement')->name('house.appartement');
    Route::get('facture', 'HouseController@facture')->name('house.facture');
    Route::get('maintenance', 'HouseController@maintenance')->name('house.maintenance');
    Route::get('historique', 'HouseController@historique')->name('house.historique');

@@ -5,7 +5,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header"> Appartement</div>
 
@@ -16,14 +16,44 @@
                         </div>
                     @endif
 
-                     <h4><strong>{{ auth()->user()->name }}</strong></h4>
-                     <a class="btn btn-lg btn-primary" href="{{route('appartement.form')}}" role="button"> Ajouter un locataire</a>
+
+
+                            <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                <th scope="col">Nomenclature</th>
+                                <th scope="col">Nom </th>
+                                <th scope="col">Compteur electricite</th>
+                                <th scope="col">Compteur D'eau</th>
+                                <th scope="col">type </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                                @foreach ($appartements as $appartement)
+                                <tr>
+                                    <td> {{ $appartement->noma }}</td>
+                                    <td> {{ $appartement->nom }}</td>
+                                    <td> {{ $appartement->numb_elec }}</td>
+                                    <td>{{ $appartement->numb_eau }}</td>
+                                   <td> {{ $appartement->type }}</td>
+                                </tr>
+                                @endforeach
+                          
+                            </tbody>
+                            </table>
 
                      
-                </div>
+        <a class="btn btn-lg btn-primary" href="{{route('appartement.form')}}" role="button"> Ajouter un locataire</a>
+
+
+             </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
 @endsection
 

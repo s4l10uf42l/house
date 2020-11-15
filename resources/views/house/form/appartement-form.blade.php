@@ -19,10 +19,12 @@
                 <label>Appartement </label>
          
                 <select class="custom-select mr-sm-2" name="appartement_id" id="inlineFormCustomSelect">
+                   
                     <option selected>Choisir l'appartement</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    @foreach ($appartements as $appartement)    
+                    <option value="1"> {{ $appartement->noma }}</option>                  
+                    @endforeach
+  
                 </select>
             </div>
             <div class="form-group">

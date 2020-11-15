@@ -13,7 +13,7 @@ class CreateAppartementTable extends Migration
      */
     public function up()
     {
-        Schema::create('appartement', function (Blueprint $table) {
+        Schema::create('appartements', function (Blueprint $table) {
             $table->string('noma')->unique();
             $table->string('nom');
             $table->string('numb_elec');
@@ -31,6 +31,6 @@ class CreateAppartementTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appartement');
+        Schema::dropIfExists('appartements');
     }
 }

@@ -3,13 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Appartement;
+use App\Locataire;
 class HouseController extends Controller
 {
 
-    public function appartement(Request $request)
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Appartement  $appartement
+     * @return \Illuminate\Http\Response
+     */
+
+    public function appartement( Request $request)
     {
-        return view('house.appartement', compact('appartement'));
+        $appartements = Appartement::latest()->get();
+        return view('house.appartement', compact('appartements'));
+        
     }
 
 
@@ -46,7 +58,8 @@ class HouseController extends Controller
 
     public function add_appartement(Request $request)
     {
-        return view('house.form.appartement-form', compact('costumer'));
+        $appartements = Appartement::latest()->get();
+        return view('house.form.appartement-form', compact('appartements'));
     }
 
     
