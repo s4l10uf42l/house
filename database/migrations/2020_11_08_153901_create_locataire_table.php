@@ -19,8 +19,8 @@ class CreateLocataireTable extends Migration
             $table->string('prenom');
             $table->string('nom');
             $table->integer('NIN');
-            $table->string('date-naissance');
-            $table->string('lieu-naissance');
+            $table->string('date_naissance');
+            $table->string('lieu_naissance');
             $table->string('appartement_id')->nullable();
             $table->string('profession');
             $table->string('contact');

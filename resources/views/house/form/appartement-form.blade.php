@@ -22,7 +22,7 @@
                    
                     <option selected>Choisir l'appartement</option>
                     @foreach ($appartements as $appartement)    
-                    <option value="1"> {{ $appartement->noma }}</option>                  
+                    <option value= '{{ $appartement->noma }}' > {{ $appartement->noma }}</option>                  
                     @endforeach
   
                 </select>
@@ -43,11 +43,11 @@
 
             <div class="form-group">
                 <label>Date de naissance</label>
-                <input type="text" name="date-naissance" required class="form-control" id="exampleFormControlInput1" placeholder=" jj/mm/aaaa">
+                <input type="text" name="date_naissance" required class="form-control" id="exampleFormControlInput1" placeholder=" jj/mm/aaaa">
             </div>
             <div class="form-group">
                 <label>Lieu de naissance</label>
-                <input type="text" name="lieu-naissance" required class="form-control" id="exampleFormControlInput1" placeholder="Dakar,St Louis,...">
+                <input type="text" name="lieu_naissance" required class="form-control" id="exampleFormControlInput1" placeholder="Dakar,St Louis,...">
             </div>
 
 

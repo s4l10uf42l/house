@@ -8,7 +8,7 @@ class Locataire extends Model
 {
     //
     protected $fillable = [
-        'prenom', 'nom', 'NIN','date-naissance','lieu-naissance','appartement_id', 'profession','contact',
+        'prenom', 'nom', 'NIN','date_naissance','lieu_naissance','appartement_id', 'profession','contact',
     ];
 
 

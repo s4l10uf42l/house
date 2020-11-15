@@ -15,7 +15,7 @@
                     @endif
 
                      <h4><strong>{{ auth()->user()->name }}</strong></h4>
-                     <a class="btn btn-lg btn-primary" href="{{route('add_costumer')}}" role="button">ajouter un locataire</a>
+                     <a class="btn btn-lg btn-primary" href="{{route('house.appartement')}}" role="button">ajouter un locataire</a>
 
                      
                 </div>

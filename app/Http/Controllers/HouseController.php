@@ -66,7 +66,21 @@ class HouseController extends Controller
 
     public function store_appartement(Request $request)
     {
-        return view('house.appartement', compact('appartement'));
+
+        $locataire = new Locataire;
+        $locataire->prenom = $request->prenom;
+        $locataire->nom = $request->nom;
+        $locataire->NIN = $request->NIN;
+        $locataire->date_naissance = $request->date_naissance;
+        $locataire->lieu_naissance = $request->lieu_naissance;
+        $locataire->appartement_id = $request->appartement_id;
+        $locataire->profession = $request->prenom;
+        $locataire->contact = $request->contact;
+
+        $locataire->save();
+
+        return redirect()->route('house.appartement');
+        
     }
 
 
