@@ -21,17 +21,17 @@ class CreateMaintenanceTable extends Migration
             $table->string('materiel');
             $table->timestamps();
         });
-        Schema::table('maintenances', function ($table) {
-            $table->foreign('locataire_id')->references('id')
-            ->on('locataire')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
+        // Schema::table('maintenances', function ($table) {
+        //     $table->foreign('locataire_id')->references('id')
+        //     ->on('locataire')
+        //     ->onDelete('cascade')
+        //     ->onUpdate('cascade');
 
-            $table->foreign('appartement_id')->references('noma')
-            ->on('appartement')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
-        });
+        //     $table->foreign('appartement_id')->references('noma')
+        //     ->on('appartement')
+        //     ->onDelete('cascade')
+        //     ->onUpdate('cascade');
+        // });
 
     }
 

@@ -38,6 +38,9 @@
                             <a class="nav-link" href="{{ route('house.appartement') }}"><strong>Appartement</strong></a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('house.locataire') }}"><strong>Locataire</strong></a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('house.facture') }}"><strong> Facture</strong></a>
                         </li>
                         <li class="nav-item">

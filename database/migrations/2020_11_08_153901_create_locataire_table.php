@@ -18,7 +18,7 @@ class CreateLocataireTable extends Migration
             $table->id()->unique();
             $table->string('prenom');
             $table->string('nom');
-            $table->integer('NIN');
+            $table->string('NIN');
             $table->string('date_naissance');
             $table->string('lieu_naissance');
             $table->string('appartement_id')->nullable();
@@ -28,12 +28,12 @@ class CreateLocataireTable extends Migration
         });
 
 
-    Schema::table('locataires', function ($table) {
-        $table->foreign('appartement_id')->references('noma')
-        ->on('appartement')
-        ->onDelete('cascade')
-        ->onUpdate('cascade');
-    });
+    // Schema::table('locataires', function ($table) {
+    //     $table->foreign('appartement_id')->references('noma')
+    //     ->on('appartement')
+    //     ->onDelete('cascade')
+    //     ->onUpdate('cascade');
+    // });
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Appartement;
 use App\Locataire;
+use PDF;
 class HouseController extends Controller
 {
 
@@ -24,6 +25,12 @@ class HouseController extends Controller
         
     }
 
+    public function locataire( Request $request)
+    {
+        $locataires = locataire::latest()->get();
+        return view('house.locataire', compact('locataires'));
+        
+    }
 
     public function facture(Request $request)
     {
@@ -62,6 +69,19 @@ class HouseController extends Controller
         return view('house.form.appartement-form', compact('appartements'));
     }
 
+    public function contract(Request $request)
+    {
+        $appartements = Appartement::latest()->get();
+
+        $pdf = PDF::loadView('house.contract', $appartements);
+
+        // download PDF file with download method
+        return $pdf->download('contract.pdf');
+
+
+        // return view('house.contract', compact('appartements'));
+    }
+
     
 
     public function store_appartement(Request $request)
@@ -74,12 +94,12 @@ class HouseController extends Controller
         $locataire->date_naissance = $request->date_naissance;
         $locataire->lieu_naissance = $request->lieu_naissance;
         $locataire->appartement_id = $request->appartement_id;
-        $locataire->profession = $request->prenom;
+        $locataire->profession = $request->profession;
         $locataire->contact = $request->contact;
 
         $locataire->save();
 
-        return redirect()->route('house.appartement');
+        return redirect()->route('house.locataire');
         
     }
 
