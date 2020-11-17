@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth']], function () {
    Route::get('factures', 'HouseController@facture')->name('house.facture');
    Route::get('maintenances', 'HouseController@maintenance')->name('house.maintenance');
    Route::get('historiques', 'HouseController@historique')->name('house.historique');
-
+   Route::get('detail/{locataire}', 'HouseController@detail')->name('house.detail');
 });
 
 Route::get('posts', 'PostController@index')->name('posts.index');

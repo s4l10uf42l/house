@@ -116,6 +116,24 @@ class HouseController extends Controller
     }
 
 
+
+      /**
+     * Display the specified resource.
+     *
+     * @param  \App\Locataire  $locataire
+     * @return \Illuminate\Http\Response
+     */
+
+
+
+    public function detail($locataire)
+    {
+        $unlocataire = Locataire::find($locataire);
+
+        return view('house.detail', compact('unlocataire'));
+    }
+
+
     public function store(Request $request)
     {
         $post = new Post;
