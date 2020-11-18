@@ -91,6 +91,9 @@ class HouseController extends Controller
         $locataire->prenom = $request->prenom;
         $locataire->nom = $request->nom;
         $locataire->NIN = $request->NIN;
+        $locataire->sexe = $request->sexe;
+        $locataire->lieudelivre = $request->lieudelivre;
+        $locataire->date_naissance = $request->date_naissance;
         $locataire->date_naissance = $request->date_naissance;
         $locataire->lieu_naissance = $request->lieu_naissance;
         $locataire->appartement_id = $request->appartement_id;

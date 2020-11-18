@@ -35,10 +35,28 @@
                 <label>Nom</label>
                 <input type="text" name="nom" required class="form-control" id="exampleFormControlInput1" placeholder="Nom">
             </div>
-
+            <div class="form-group">
+                <label>Genre </label>
+         
+                <select class="custom-select mr-sm-2" name="sexe" id="inlineFormCustomSelect">
+                   
+                    <option value= 'Monsieur'>Homme </option>
+                    <option value= 'Madame' > Femme</option>                  
+                
+  
+                </select>
+            </div>
             <div class="form-group">
                 <label>Numéro d'identification nationale (NIN)</label>
                 <input type="text" name="NIN" required class="form-control" id="exampleFormControlInput1" placeholder=" 000000000...">
+           
+           
+                <label> Délivrée à :</label>
+                <input type="text" name="lieudelivre" required class="form-control" id="exampleFormControlInput1" placeholder=" 000000000...">
+                
+                <label> Date de délivrance du CNI</label>
+                <input type="text" name="datedelivre" required class="form-control" id="exampleFormControlInput1" placeholder=" 000000000...">
+            
             </div>
 
             <div class="form-group">
