@@ -8,8 +8,9 @@ class Appartement extends Model
 {
     //
     protected $fillable = [
-        'noma', 'nom', 'numb_elec','numb_eau','type',
+       'id','noma','nom','numb_elec','numb_eau','type','prix','prix_l','piece'
     ];
+
 
 
     public function user()

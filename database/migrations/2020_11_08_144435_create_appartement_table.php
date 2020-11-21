@@ -14,11 +14,15 @@ class CreateAppartementTable extends Migration
     public function up()
     {
         Schema::create('appartements', function (Blueprint $table) {
-            $table->string('noma')->unique();
+            $table->id();
+            $table->string('noma');
             $table->string('nom');
             $table->string('numb_elec');
             $table->string('numb_eau');
             $table->string('type');
+            $table->string('prix');
+            $table->string('prix_l');
+            $table->string('piece');
             $table->timestamps();
         });
     }

@@ -27,6 +27,10 @@ class CreateLocataireTable extends Migration
             $table->string('appartement_id')->nullable();
             $table->string('profession');
             $table->string('contact');
+            $table->string('deb_mois');
+            $table->string('deb_ans');
+            $table->string('fin_mois');
+            $table->string('fin_ans');
             $table->timestamps();
         });
 

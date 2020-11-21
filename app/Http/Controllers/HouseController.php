@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use App\Appartement;
 use App\Locataire;
@@ -69,17 +69,31 @@ class HouseController extends Controller
         return view('house.form.appartement-form', compact('appartements'));
     }
 
-    public function contract(Request $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Locataire  $unlocataire
+     * @return \Illuminate\Http\Response
+     */
+
+
+    public function contract($unlocataire)
     {
         $appartements = Appartement::latest()->get();
+        $unlocataire = Locataire::find($unlocataire);
+        $unappartement = Appartement::where('noma',$unlocataire->appartement_id)->get()->first();
+        $data = [
+            'unlocataire'     => $unlocataire,
+            'unappartement' => $unappartement,
+        ];
+        //echo $data['unappartement']->nom ;
+        $pdf = PDF::loadView('house.contract', $data );
 
-        $pdf = PDF::loadView('house.contract', $appartements);
-
-        // download PDF file with download method
+     //   download PDF file with download method
         return $pdf->download('contract.pdf');
 
 
-        // return view('house.contract', compact('appartements'));
+        return view('house.locataire', compact('appartements'));
     }
 
     
@@ -98,6 +112,10 @@ class HouseController extends Controller
         $locataire->lieu_naissance = $request->lieu_naissance;
         $locataire->appartement_id = $request->appartement_id;
         $locataire->profession = $request->profession;
+        $locataire->deb_mois = $request->deb_mois;
+        $locataire->deb_ans = $request->deb_ans;
+        $locataire->fin_mois = $request->fin_mois;
+        $locataire->fin_ans = $request->fin_ans;
         $locataire->contact = $request->contact;
 
         $locataire->save();
@@ -132,9 +150,15 @@ class HouseController extends Controller
     public function detail($locataire)
     {
         $unlocataire = Locataire::find($locataire);
+  
+        $unappartement = Appartement::where('noma',$unlocataire->appartement_id)->get()->first();
 
-        return view('house.detail', compact('unlocataire'));
+        var_dump( $unappartement->noma);
+           return View::make('house.detail')
+           ->with(compact('unlocataire'))
+           ->with(compact('unappartement'));
     }
+
 
 
     public function store(Request $request)

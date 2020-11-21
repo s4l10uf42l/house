@@ -80,6 +80,87 @@
                 <input type="text" name="contact" required class="form-control" id="exampleFormControlInput1" placeholder=" +221 70 000 00 00">
             </div>
 
+
+            <div class="form-group">
+                <label> Début du contrat (Mois) </label>
+         
+                <select class="custom-select mr-sm-2" name="deb_mois" id="inlineFormCustomSelect">
+                    <option value='Janvier'>Janvier</option>
+                    <option value= 'Février'>Février</option>
+                    <option value='Mars'>Mars</option>
+                    <option value='Avril'>Avril</option>
+                    <option value='Mai '>Mai</option>
+                    <option value= 'Juin'>Juin</option>
+                    <option value='Juillet'>Juillet</option>
+                    <option value='Août'>Août</option>
+                    <option value='Septembre'>Septembre</option>
+                    <option value='Octobre'>Octobre</option>
+                    <option value='Novembre'>Novembre</option>
+                    <option value='Décembre'>Décembre</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label> Début du contrat (année) </label>
+         
+                <select class="custom-select mr-sm-2" name="deb_ans" id="inlineFormCustomSelect">
+                    <option value='2020'>2022</option>
+                    <option value= '2021'>2021</option>
+                    <option value='2022'>2022</option>
+                    <option value='2023'>2023</option>
+                    <option value='2024 '>2024</option>
+                    <option value= '2025'>2025</option>
+                    <option value='2026'>2026</option>
+                    <option value='2017'>2027</option>
+                    <option value='2028'>2028</option>
+                    <option value='2029'>2029</option>
+                    <option value='2030'>2030</option>
+                </select>
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label> Fin du contract (Mois) </label>
+         
+                <select class="custom-select mr-sm-2" name="fin_mois" id="inlineFormCustomSelect">
+                    <option value='Janvier'>Janvier</option>
+                    <option value= 'Février'>Février</option>
+                    <option value='Mars'>Mars</option>
+                    <option value='Avril'>Avril</option>
+                    <option value='Mai '>Mai</option>
+                    <option value= 'Juin'>Juin</option>
+                    <option value='Juillet'>Juillet</option>
+                    <option value='Août'>Août</option>
+                    <option value='Septembre'>Septembre</option>
+                    <option value='Octobre'>Octobre</option>
+                    <option value='Novembre'>Novembre</option>
+                    <option value='Décembre'>Décembre</option>
+                </select>
+            </div>
+
+                
+            <div class="form-group">
+                <label> Fin du contract (annee) </label>
+         
+                <select class="custom-select mr-sm-2" name="fins_ans" id="inlineFormCustomSelect">
+                    <option value='2020'>2022</option>
+                    <option value= '2021'>2021</option>
+                    <option value='2022'>2022</option>
+                    <option value='2023'>2023</option>
+                    <option value='2024 '>2024</option>
+                    <option value= '2025'>2025</option>
+                    <option value='2026'>2026</option>
+                    <option value='2017'>2027</option>
+                    <option value='2028'>2028</option>
+                    <option value='2029'>2029</option>
+                    <option value='2030'>2030</option>
+                </select>
+            </div>
+
+
             <div class="form-group">
                 <input type="submit" class="btn btn-primary btn-block" value=" Enregister">
             </div>

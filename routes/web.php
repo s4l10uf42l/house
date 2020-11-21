@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth']], function () {
 
    Route::get('appartements', 'HouseController@appartement')->name('house.appartement');
    Route::get('locataires', 'HouseController@locataire')->name('house.locataire');
-   Route::get('contract', 'HouseController@contract')->name('house.contract');
+   Route::get('contract/{unlocataire}', 'HouseController@contract')->name('house.contract');
    Route::get('factures', 'HouseController@facture')->name('house.facture');
    Route::get('maintenances', 'HouseController@maintenance')->name('house.maintenance');
    Route::get('historiques', 'HouseController@historique')->name('house.historique');
