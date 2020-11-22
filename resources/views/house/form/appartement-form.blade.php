@@ -145,7 +145,7 @@
             <div class="form-group">
                 <label> Fin du contract (annee) </label>
          
-                <select class="custom-select mr-sm-2" name="fins_ans" id="inlineFormCustomSelect">
+                <select class="custom-select mr-sm-2" name="fin_ans" id="inlineFormCustomSelect">
                     <option value='2020'>2022</option>
                     <option value= '2021'>2021</option>
                     <option value='2022'>2022</option>

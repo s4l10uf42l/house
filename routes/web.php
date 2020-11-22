@@ -44,10 +44,13 @@ Route::group(['middleware' => ['auth']], function () {
    Route::get('locataires', 'HouseController@locataire')->name('house.locataire');
    Route::get('contract/{unlocataire}', 'HouseController@contract')->name('house.contract');
    Route::get('factures', 'HouseController@facture')->name('house.facture');
+   Route::get('detail_quittance/{facture}', 'HouseController@detail_quittance')->name('house.detail_quittance');
    Route::get('maintenances', 'HouseController@maintenance')->name('house.maintenance');
    Route::get('historiques', 'HouseController@historique')->name('house.historique');
+   Route::get('quittance/{unefacture}', 'HouseController@quittance')->name('house.quittance');
    Route::get('detail/{locataire}', 'HouseController@detail')->name('house.detail');
 });
+
 
 Route::get('posts', 'PostController@index')->name('posts.index');
 Route::get('posts/{post}', 'PostController@show')->name('posts.show');

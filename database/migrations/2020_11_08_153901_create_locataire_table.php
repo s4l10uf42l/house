@@ -15,7 +15,7 @@ class CreateLocataireTable extends Migration
     {
         Schema::create('locataires', function (Blueprint $table) {
             
-            $table->id()->unique();
+            $table->id();
             $table->string('prenom');
             $table->string('nom');
             $table->string('NIN');

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use App\Appartement;
 use App\Locataire;
+use App\Facture;
 use PDF;
 class HouseController extends Controller
 {
@@ -32,9 +33,18 @@ class HouseController extends Controller
         
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Facture  $factures
+     * @return \Illuminate\Http\Response
+     */
+
     public function facture(Request $request)
     {
-        return view('house.facture', compact('facture'));
+        $factures = Facture::latest()->get();
+
+        return view('house.facture', compact('factures'));
     }
 
 
@@ -54,7 +64,14 @@ class HouseController extends Controller
 
     public function add_facture(Request $request)
     {
-        return view('house.form.facture-form', compact('facture'));
+        $appartements = Appartement::latest()->get();
+        $locataires = Locataire::latest()->get();
+
+        return View::make('house.form.facture-form')
+           ->with(compact('appartements'))
+           ->with(compact('locataires'));
+
+        //return view('house.form.facture-form', compact('data'));
     }
 
 
@@ -77,6 +94,7 @@ class HouseController extends Controller
      */
 
 
+     
     public function contract($unlocataire)
     {
         $appartements = Appartement::latest()->get();
@@ -96,10 +114,51 @@ class HouseController extends Controller
         return view('house.locataire', compact('appartements'));
     }
 
-    
+        /**
+     * Display the specified resource.
+     *
+     * @param  \App\Facture  $facture
+     * @return \Illuminate\Http\Response
+     */
+
+    public function detail_quittance($facture)
+    {
+        $unefacture= facture::find($facture);
+        $unappartement = Appartement::where('noma',$unefacture->appartement_id)->get()->first();
+
+        return View::make('house.detail_quittance')
+           ->with(compact('unappartement'))
+           ->with(compact('unefacture'));
+
+
+
+        //return view('house.detail_quittance', compact('unefacture'));
+    }
+
+
+    public function quittance($unefacture)
+    {
+        $unefacture= facture::find($unefacture);
+
+        $unappartement = Appartement::where('noma',$unefacture->appartement_id)->get()->first();
+        $data = [
+            'unefacture'     => $unefacture,
+            'unappartement' => $unappartement,
+        ];
+
+        //echo $data['unappartement']->nom ;
+        $pdf = PDF::loadView('house.quittance', $data );
+     //   download PDF file with download method
+        return $pdf->download('quittance.pdf');
+        return view('house.detail_quittance', compact('unefacture'));
+    }
+
+
 
     public function store_appartement(Request $request)
     {
+
+
 
         $locataire = new Locataire;
         $locataire->prenom = $request->prenom;
@@ -107,7 +166,7 @@ class HouseController extends Controller
         $locataire->NIN = $request->NIN;
         $locataire->sexe = $request->sexe;
         $locataire->lieudelivre = $request->lieudelivre;
-        $locataire->date_naissance = $request->date_naissance;
+        $locataire->datedelivre = $request->datedelivre;
         $locataire->date_naissance = $request->date_naissance;
         $locataire->lieu_naissance = $request->lieu_naissance;
         $locataire->appartement_id = $request->appartement_id;
@@ -127,7 +186,16 @@ class HouseController extends Controller
 
     public function store_facture(Request $request)
     {
-        return view('house.facture', compact('facture'));
+        $facture = new Facture;
+        $facture->type = $request->type;
+        $facture->locataire_name = $request->locataire_name;
+        $facture->appartement_id = $request->appartement_id;
+        $facture->deb_mois = $request->deb_mois;
+        $facture->fin_mois = $request->fin_mois;
+
+        $facture->save();
+        $factures = Facture::latest()->get();
+        return view('house.facture', compact('factures'));
     }
 
 
@@ -153,7 +221,6 @@ class HouseController extends Controller
   
         $unappartement = Appartement::where('noma',$unlocataire->appartement_id)->get()->first();
 
-        var_dump( $unappartement->noma);
            return View::make('house.detail')
            ->with(compact('unlocataire'))
            ->with(compact('unappartement'));
@@ -169,7 +236,7 @@ class HouseController extends Controller
         $post->user_id = $request->user()->id;
 
         $post->save();
-
+        
         return redirect()->route('posts.index');
     }
 

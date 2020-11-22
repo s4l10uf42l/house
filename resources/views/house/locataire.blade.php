@@ -49,13 +49,6 @@
                             </table>
 
                      
-                                            <!-- Large modal -->
- 
-  <!-- 
-        <a class="btn btn-lg btn-primary" href="{{route('appartement.form')}}" role="button"> Ajouter un locataire</a>
-
-        <a class="btn btn-lg btn-primary" href="{{route('house.contract')}}" role="button"> Ajouter un locataire</a> -->
-
              </div>
             </div>
         </div>

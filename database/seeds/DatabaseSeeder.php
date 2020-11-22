@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             ]);
         // $this->call(UsersTableSeeder::class);
         $data = array(
+            array('noma'=>'app-0-g' , 'nom'=> 'Boutique'                               , 'numb_elec'=> '53346553' , 'numb_eau'=> '53346553' , 'type'=> 'Magazin' , 'prix'=> '105 000 Fr','prix_l' => 'cent cinq mille FRANCS' , 'piece' => ' 1 Magazin '  ),
             array('noma'=>'app-0-d' , 'nom'=> 'l’appartement du Rez de chaussé'        , 'numb_elec'=> '53346553' , 'numb_eau'=> '53346553' , 'type'=> 'f1' , 'prix'=> '150 000 Fr','prix_l' => 'cent cinquante mille FRANCS' , 'piece' => '1 Salon, 1 Chambre, 1 Salle de Bain, 1 Cuisine, un pation , 1 Salle d’Eau'  ),
             array('noma'=>'app-1-g' , 'nom'=> 'l’appartement première  étage à gauche' , 'numb_elec'=> '53346553' , 'numb_eau'=> '53346553' , 'type'=> 'f2' , 'prix'=> '200 000 Fr','prix_l' => 'deux cent  mille FRANCS'     ,'piece' => '1 Salon, 2 Chambre, 1 Salle de Bain, 1 Cuisine, , 1 Salle d’Eau'  ),
             array('noma'=>'app-1-d' , 'nom'=> 'l’appartement première  étage à droite' , 'numb_elec'=> '53346553' , 'numb_eau'=> '53346553' , 'type'=> 'f1' , 'prix'=> '150 000 Fr','prix_l' => 'cent cinquante mille FRANCS' ,'piece' => '1 Salon, 2 Chambre, 1 Salle de Bain, 1 Cuisine, , 1 Salle d’Eau'  ),

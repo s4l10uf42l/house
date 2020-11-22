@@ -15,11 +15,12 @@ class CreateFactureTable extends Migration
     {
         Schema::create('factures', function (Blueprint $table) {
             // $table->id()->unique();
+            $table->id();
             $table->string('type');
-            $table->string('profession');
-            $table->id('locataire_id')->unique();
-            $table->string('appartement_id')->unique();
-            $table->string('mois')->nullable();
+            $table->string('locataire_name');
+            $table->string('appartement_id');
+            $table->string('deb_mois');
+            $table->string('fin_mois');
             $table->string('numb_jour')->nullable();
             $table->timestamps();
         });

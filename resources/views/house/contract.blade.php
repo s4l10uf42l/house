@@ -13,7 +13,7 @@
 <body>
     <div class="container mt-5">
    
-                <p><strong>CONTRAT DE LOCATION -- HABITATION (*)</strong></p>
+                <p>  <h4> <strong>CONTRAT DE LOCATION -- HABITATION (*)</strong> </h4></p>
                 <p>Entre les soussign&eacute;s&nbsp;:</p>
                 <p>Mr El hadji Fallou NDIAYE, titulaire de la carte d&rsquo;identit&eacute; N&deg; 1200 1972 00737 d&eacute;livr&eacute;e &agrave; Dakar le 27/04/2017, propri&eacute;taire de l&rsquo;immeuble sis aux HLM 1 Villa n&deg; 211 Dakar.</p>
                 <p>D&rsquo;une part Et</p>
@@ -70,8 +70,8 @@
                
                 <p>Article 18&nbsp;: Le propri&eacute;taire autorise &agrave; {{$unlocataire->sexe}}  <strong><p> {{$unlocataire->prenom}}  {{$unlocataire->nom}} </strong>de faire un abonnement en son nom pour le branchement particulier &agrave; l&rsquo;eau et &agrave; l&rsquo;&eacute;lectricit&eacute; au niveau de la SEN EAU et de la SENELEC.</p>
                 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fait en deux (02) exemplaires &agrave; Dakar, le {{Carbon\Carbon::now()->translatedFormat('d F Y à H\hi') }}</p>
-                <p><strong>Le G&eacute;rant</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>Le Locataire</strong></p>
-                <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;&lt; Lu et approuv&eacute;&gt;&gt;</strong></p>
+                <p><strong>Le G&eacute;rant</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <strong>Le Locataire</strong></p>
+                <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;&lt; Lu et approuv&eacute;&gt;&gt;</strong></p>
                 <p><br /><br /><br /><br /></p>
                 <p>(*) . Code des obligations civiles et Commerciales.</p>
                 <p>Loi N&deg; 84 &ndash; 12 du 04 janvier 1984</p> 
