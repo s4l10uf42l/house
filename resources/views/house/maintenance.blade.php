@@ -1,3 +1,6 @@
+
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -5,19 +8,47 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
             <div class="card">
-                <div class="card-header"> Les Maintenances</div>
+            
+                <div class="card-header">Maintenances</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                            <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                <th scope="col">Appartement</th>
+                                <th scope="col">Locataire </th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Honoraire</th>
+                                <th scope="col">Materiel</th>
+                              
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                                @foreach ($maintenances as $maintenance)
+                                <tr>
+                                    <td> {{ $maintenance->appartement_id }}</td>
+                                    <td> {{ $maintenance->locataire_name }}</td>
+                                    <td> {{ $maintenance->type }}</td>
+                                    <td>{{ $maintenance->honoraire}} </td>
+                                    <td> {{ $maintenance->materiel}}</td>
+                                </tr>
+                                @endforeach
+                          
+                            </tbody>
+                            </table>
 
-                     <h4><strong>{{ auth()->user()->name }}</strong></h4>
-                     <a class="btn btn-lg btn-primary" href="{{route('maintenance.form')}}" role="button"> Enregistrer une maintenance</a>
 
-                     
+             </div>
+             <a class="btn btn-lg btn-primary" href="{{route('maintenance.form')}}" role="button"> Enregistrer une maintenance</a>
+
+            </div>
+
+
+              </div>
+        </div>  
+  </div>
+        
 
 @endsection

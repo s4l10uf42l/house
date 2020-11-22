@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Appartement;
 use App\Locataire;
 use App\Facture;
+use App\Maintenance;
 use PDF;
 class HouseController extends Controller
 {
@@ -50,7 +51,8 @@ class HouseController extends Controller
 
     public function maintenance(Request $request)
     {
-        return view('house.maintenance', compact('maintenance'));
+        $maintenances = Maintenance::latest()->get();
+        return view('house.maintenance', compact('maintenances'));
     }
 
 
@@ -77,7 +79,14 @@ class HouseController extends Controller
 
     public function add_maintenance(Request $request)
     {
-        return view('house.form.maintenance-form', compact('maintenance'));
+        $appartements = Appartement::latest()->get();
+        $locataires = Locataire::latest()->get();
+
+        return View::make('house.form.maintenance-form')
+        ->with(compact('appartements'))
+        ->with(compact('locataires'));
+
+        //return view('house.form.maintenance-form', compact('maintenance'));
     }
 
     public function add_appartement(Request $request)
@@ -201,7 +210,16 @@ class HouseController extends Controller
 
     public function store_maintenance(Request $request)
     {
-        return view('house.maintenance', compact('maintenance'));
+        $maintenance = new Maintenance;
+        $maintenance->type = $request->type;
+        $maintenance->locataire_name = $request->locataire_name;
+        $maintenance->appartement_id = $request->appartement_id;
+        $maintenance->honoraire = $request->honoraire;
+        $maintenance->materiel = $request->materiel;
+
+        $maintenance->save();
+        $maintenances = Maintenance::latest()->get();
+        return view('house.maintenance', compact('maintenances'));
     }
 
 

@@ -15,39 +15,46 @@
           <hr>
       <form action="{{route('store.maintenance')}}" method="POST">
         @csrf
+
         <div class="form-group">
                 <label>Appartement </label>
          
                 <select class="custom-select mr-sm-2" name="appartement_id" id="inlineFormCustomSelect">
+                   
                     <option selected>Choisir l'appartement</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    @foreach ($appartements as $appartement)    
+                    <option value= '{{ $appartement->noma }}' > {{ $appartement->noma }}</option>                  
+                    @endforeach
+  
                 </select>
             </div>
 
+
+            <div class="form-group">
+                <label>Locataire </label>
+         
+                <select class="custom-select mr-sm-2" name="locataire_name" id="inlineFormCustomSelect">
+                   
+                    <option selected>Choisir locataire</option>
+                    @foreach ($locataires as $locataire)    
+                    <option value= '{{ $locataire->prenom }} {{$locataire->nom}}' > {{ $locataire->prenom }} {{$locataire->nom }}</option>                  
+                    @endforeach
+  
+                </select>
+            </div>
 
             <div class="form-group">
                 <label>Type de maintenance</label>
          
-                <select class="custom-select mr-sm-2" name="appartement_id" id="inlineFormCustomSelect">
+                <select class="custom-select mr-sm-2" name="type" id="inlineFormCustomSelect">
                     <option selected>Plomberie ou sanitaire  </option>
-                    <option value="1"> Electricité  </option>
-                    <option value="2"> Maçonnerie </option>
-                    <option value="2"> Peinture </option>
+                    <option value="Electricité"> Electricité  </option>
+                    <option value="Maçonnerie"> Maçonnerie </option>
+                    <option value="Peinture"> Peinture </option>
 
                 </select>
             </div>
             
-
-            <div class="form-group">
-                <label>locataire </label>
-                <select class="custom-select mr-sm-2" name="locataire_id" id="inlineFormCustomSelect">
-                    <option selected>L1 </option>
-                    <option value="1"> L2</option>
-                    <option value="2"> L3 </option>
-                </select>
-            </div>
 
             <div class="form-group">
                 <label>Materiel</label>
