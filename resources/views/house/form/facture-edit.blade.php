@@ -13,12 +13,12 @@
       <div class="col-md-9">
           <h4 class="text-center"> Générer une facture </h4>
           <hr>
-      <form action="{{route('store.facture')}}" method="POST">
-        @csrf
+      <form action="{{route('update.facture',$facture)}}" method="POST">
+      @csrf @method('PATCH')
         <div class="form-group">
                 <label>Appartement </label>
          
-                <select class="custom-select mr-sm-2" name="appartement_id" id="inlineFormCustomSelect">
+                <select class="custom-select mr-sm-2" name="appartement_id"  value="{{$facture->appartement_id}}" id="inlineFormCustomSelect">
                    
                     @foreach ($appartements as $appartement)    
                     <option value= '{{ $appartement->noma }}' > {{ $appartement->noma }}</option>                  
@@ -30,8 +30,8 @@
             <div class="form-group">
                 <label>type </label>
          
-                <select class="custom-select mr-sm-2" name="type" id="inlineFormCustomSelect">
-                <option value="Mensuel">Mensuel </option>
+                <select class="custom-select mr-sm-2" name="type" value="{{$facture->type}}" id="inlineFormCustomSelect">
+                    <option value="Mensuel">Mensuel </option>
                     <option value=" Avance et caution"> Avance et caution </option>
                     <option value="journalière"> journalière </option>
                 </select>
@@ -41,9 +41,8 @@
             <div class="form-group">
                 <label>Locataire </label>
          
-                <select class="custom-select mr-sm-2" name="locataire_name" id="inlineFormCustomSelect">
-                   
-                    @foreach ($locataires as $locataire)    
+                <select class="custom-select mr-sm-2" name="locataire_name"  value="{{$facture->locataire_name}}" id="inlineFormCustomSelect">
+                        @foreach ($locataires as $locataire)    
                     <option value= '{{ $locataire->prenom }} {{$locataire->nom}}' > {{ $locataire->prenom }} {{$locataire->nom }}</option>                  
                     @endforeach
   

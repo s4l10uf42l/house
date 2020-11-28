@@ -1,13 +1,13 @@
 @extends('layouts.app')
-
+<form action="{{route('posts.update', $post)}}" method="POST">
+        @csrf @method('PATCH')
 @section('content')
 <div class="container">
 <div class="row justify-content-center">
     <div class="col-md-8">
     <h4 class="text-center">Edit {{$post->title}}</h4>
         <hr>
-    <form action="{{route('posts.update', $post)}}" method="POST">
-        @csrf @method('PATCH')
+
             <div class="form-group">
                 <label>Title</label>
             <input type="text" name="title" required class="form-control" id="exampleFormControlInput1" value="{{$post->title}}">

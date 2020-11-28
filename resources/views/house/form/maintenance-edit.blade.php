@@ -13,13 +13,12 @@
       <div class="col-md-8">
           <h4 class="text-center">Ajouter une Maintenance </h4>
           <hr>
-      <form action="{{route('store.maintenance')}}" method="POST">
-        @csrf
-
+      <form action="{{route('update.maintenance',$maintenance)}}" method="POST">
+      @csrf @method('PATCH')
         <div class="form-group">
                 <label>Appartement </label>
          
-                <select class="custom-select mr-sm-2" name="appartement_id" id="inlineFormCustomSelect">
+                <select class="custom-select mr-sm-2" name="appartement_id" value="{{$maintenance->appartement_id}}" id="inlineFormCustomSelect">
                    
                     <option selected>Choisir l'appartement</option>
                     @foreach ($appartements as $appartement)    
@@ -33,7 +32,7 @@
             <div class="form-group">
                 <label>Locataire </label>
          
-                <select class="custom-select mr-sm-2" name="locataire_name" id="inlineFormCustomSelect">
+                <select class="custom-select mr-sm-2" name="locataire_name" value="{{$maintenance->locataire_name}}" id="inlineFormCustomSelect">
                    
                     <option selected>Choisir locataire</option>
                     @foreach ($locataires as $locataire)    
@@ -46,7 +45,7 @@
             <div class="form-group">
                 <label>Type de maintenance</label>
          
-                <select class="custom-select mr-sm-2" name="type" id="inlineFormCustomSelect">
+                <select class="custom-select mr-sm-2" name="type" value="{{$maintenance->type}}" id="inlineFormCustomSelect">
                     <option value="Plomberie ou sanitaire" >Plomberie ou sanitaire  </option>
                     <option value="Electricité"> Electricité  </option>
                     <option value="Maçonnerie"> Maçonnerie </option>
@@ -58,12 +57,12 @@
 
             <div class="form-group">
                 <label>Materiel</label>
-                <input type="text" name="materiel" required class="form-control" id="exampleFormControlInput1" >
+                <input type="text" name="materiel" required class="form-control" value="{{$maintenance->materiel}}" id="exampleFormControlInput1" >
             </div>
             
             <div class="form-group">
                 <label>Honoraire</label>
-                <input type="text" name="honoraire" required class="form-control" id="exampleFormControlInput1" >
+                <input type="text" name="honoraire" required class="form-control" value="{{$maintenance->honoraire}}" id="exampleFormControlInput1" >
             </div>
 
             <div class="form-group">

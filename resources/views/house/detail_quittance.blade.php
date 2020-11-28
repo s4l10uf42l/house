@@ -13,7 +13,7 @@
                 <h1 style="text-align: justify;"><br /><br /></h1>
                 <h1 style="text-align: center;"><strong>QUITTANCE DE LOYER&nbsp;</strong></h1>
                 <p style="text-align: justify;"><br /><br /><br /></p>
-                <p>Quittance de loyer du mois de :<strong> {{  Carbon\Carbon::parse($unefacture->deb_mois)->translatedFormat('F Y ') }} </strong></p>
+                <p>Quittance de loyer du mois :<strong> {{  Carbon\Carbon::parse($unefacture->deb_mois)->translatedFormat('F Y ') }} </strong></p>
                 
                 <h4><strong>Adresse de location :</strong></h4>
                

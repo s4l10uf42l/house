@@ -48,7 +48,7 @@ class HouseController extends Controller
         return view('house.facture', compact('factures'));
     }
 
-
+  
     public function maintenance(Request $request)
     {
         $maintenances = Maintenance::latest()->get();
@@ -166,9 +166,6 @@ class HouseController extends Controller
 
     public function store_appartement(Request $request)
     {
-
-
-
         $locataire = new Locataire;
         $locataire->prenom = $request->prenom;
         $locataire->nom = $request->nom;
@@ -246,17 +243,182 @@ class HouseController extends Controller
 
 
 
-    public function store(Request $request)
-    {
-        $post = new Post;
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->user_id = $request->user()->id;
 
-        $post->save();
-        
-        return redirect()->route('posts.index');
+    public function edit_locataire(Locataire $locataire)
+    {
+        //return view('house.form.locataire-edit', compact('locataire'));
+
+        $appartements = Appartement::latest()->get();
+        // $locataires = Locataire::latest()->get();
+
+        return View::make('house.form.locataire-edit')
+        ->with(compact('appartements'))
+        ->with(compact('locataire'));
     }
 
+
+  /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Locataire  $locataire
+     * @return \Illuminate\Http\Response
+     */
+
+    public function update_locataire(Request $request, Locataire $locataire)
+    {
+  
+        $locataire->prenom = $request->prenom;
+        $locataire->nom = $request->nom;
+        $locataire->NIN = $request->NIN;
+        $locataire->sexe = $request->sexe;
+        $locataire->lieudelivre = $request->lieudelivre;
+        $locataire->datedelivre = $request->datedelivre;
+        $locataire->date_naissance = $request->date_naissance;
+        $locataire->lieu_naissance = $request->lieu_naissance;
+        $locataire->appartement_id = $request->appartement_id;
+        $locataire->profession = $request->profession;
+        $locataire->deb_mois = $request->deb_mois;
+        $locataire->deb_ans = $request->deb_ans;
+        $locataire->fin_mois = $request->fin_mois;
+        $locataire->fin_ans = $request->fin_ans;
+        $locataire->contact = $request->contact;
+
+        $locataire->save();
+
+       $locataires = locataire::latest()->get();
+        return view('house.locataire', compact('locataires'));
+            }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Locataire  $locataire
+     * @return \Illuminate\Http\Response
+     */
+
+       public function destroy_locataire(Locataire $locataire)
+        {
+            $locataire->delete();
+            $locataires = locataire::latest()->get();
+            return view('house.locataire', compact('locataires'));
+       }
+        
+
+       public function edit_facture(Facture $facture)
+       {
+
+            $appartements = Appartement::latest()->get();
+            $locataires = Locataire::latest()->get();
+    
+            return View::make('house.form.facture-edit')
+               ->with(compact('appartements'))
+               ->with(compact('facture'))
+               ->with(compact('locataires'));
+       }
+
     //
+
+
+      /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Facture  $facture
+     * @return \Illuminate\Http\Response
+     */
+
+    public function  update_facture(Request $request,Facture  $facture )
+    {
+   
+        $facture->type = $request->type;
+        $facture->locataire_name = $request->locataire_name;
+        $facture->appartement_id = $request->appartement_id;
+        $facture->deb_mois = $request->deb_mois;
+        $facture->fin_mois = $request->fin_mois;
+
+        $facture->save();
+        $factures = Facture::latest()->get();
+        return view('house.facture', compact('factures'));
+    }
+   
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Facture  $facture
+     * @return \Illuminate\Http\Response
+     */
+
+    public function destroy_facture(Facture $facture)
+    {
+        $facture->delete();
+        $factures = Facture::latest()->get();
+        return view('house.facture', compact('factures'));
+   }
+
+
+     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Maintenance  $unemaintenance
+     * @return \Illuminate\Http\Response
+     */
+
+
+
+   public function edit_maintenance(Maintenance $maintenance)
+       {
+
+            $appartements = Appartement::latest()->get();
+            $locataires = Locataire::latest()->get();
+
+            return View::make('house.form.maintenance-edit')
+               ->with(compact('appartements'))
+               ->with(compact('maintenance'))
+               ->with(compact('locataires'));
+       }
+
+    //
+
+
+      /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Maintenance  $maintenance
+     * @return \Illuminate\Http\Response
+     */
+
+    public function  update_maintenance(Request $request,Maintenance  $maintenance )
+    {
+   
+        $maintenance->type = $request->type;
+        $maintenance->locataire_name = $request->locataire_name;
+        $maintenance->appartement_id = $request->appartement_id;
+        $maintenance->honoraire = $request->honoraire;
+        $maintenance->materiel = $request->materiel;
+
+        $maintenance->save();
+        $maintenances = Maintenance::latest()->get();
+        return view('house.maintenance', compact('maintenances'));
+    }
+   
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Maintenance  $maintenance
+     * @return \Illuminate\Http\Response
+     */
+
+    public function destroy_maintenance(Maintenance $maintenance)
+    {
+        $maintenance->delete();
+        $maintenances = Maintenance::latest()->get();
+        return view('house.maintenance', compact('maintenances'));
+   }
 }

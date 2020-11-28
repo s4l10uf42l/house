@@ -1,6 +1,3 @@
-
-
-
 @extends('layouts.app')
 
 @section('content')
@@ -21,7 +18,8 @@
                                 <th scope="col">Type</th>
                                 <th scope="col">Honoraire</th>
                                 <th scope="col">Materiel</th>
-                              
+                                <th scope="col"></th>       
+                                <th scope="col"></th>   
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,6 +31,19 @@
                                     <td> {{ $maintenance->type }}</td>
                                     <td>{{ $maintenance->honoraire}} </td>
                                     <td> {{ $maintenance->materiel}}</td>
+                                    
+                                    <td>
+                                    <p>
+                                        <a href="{{route('edit.maintenance', $maintenance)}}" class="btn btn-info btn-sm btn-block text-white">Edit</a>
+                                            <span>
+                                                <form action="{{route('destroy.maintenance', $maintenance)}}" method="POST">
+                                                    @csrf @method('DELETE')
+                                                    <button class="btn btn-danger btn-sm btn-block"
+                                                    onclick="return confirm('You can not recover deleted posts. Are you sure you want to delete this post?');">Delete</button>
+                                                    </form>
+                                            </span>
+                                        </p>
+                                    <td>
                                 </tr>
                                 @endforeach
                           

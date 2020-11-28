@@ -14,6 +14,7 @@ class CreateMaintenanceTable extends Migration
     public function up()
     {
         Schema::create('maintenances', function (Blueprint $table) {
+            $table->id();
             $table->string('type');
             $table->string('locataire_name');
             $table->string('appartement_id');
