@@ -32,6 +32,7 @@ class CreateLocataireTable extends Migration
             $table->string('fin_mois');
             $table->string('fin_ans');
             $table->timestamps();
+            $table->softDeletes();
         });
 
 

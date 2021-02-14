@@ -19,10 +19,12 @@ class CreateFactureTable extends Migration
             $table->string('type');
             $table->string('locataire_name');
             $table->string('appartement_id');
+            $table->string('locataire_id');
             $table->string('deb_mois');
             $table->string('fin_mois');
             $table->string('numb_jour')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         // Schema::table('factures', function ($table) {

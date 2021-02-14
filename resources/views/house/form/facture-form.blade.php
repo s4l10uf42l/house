@@ -27,6 +27,9 @@
                 </select>
             </div>
 
+
+    
+            
             <div class="form-group">
                 <label>type </label>
          
@@ -49,6 +52,34 @@
   
                 </select>
             </div>
+
+
+            <div class="form-group">
+                <label>Identifiant locataire </label>
+                <select class="custom-select mr-sm-2" name="locataire_id" id="inlineFormCustomSelect">
+                    @foreach ($locataires as $locataire)    
+                    <option value= '{{ $locataire->id }}' > {{ $locataire->id }} <==> {{ $locataire->prenom }} {{$locataire->nom }}</option>                  
+                    @endforeach
+                </select>
+            </div>
+
+
+
+            <div class="form-group">
+                <input  type="hidden"  name="locataire_id" required class="form-control"   value="{{$locataire->id}}">
+            </div>
+
+            <!-- <div class="form-group">
+                <label>Locataire </label>
+         
+                <select  type="hidden"  class="custom-select mr-sm-2" name="locataire_id" id="inlineFormCustomSelect">
+                   
+                    @foreach ($locataires as $locataire)    
+                    <option value= '{{ $locataire->id }}' > {{ $locataire->id }}</option>                  
+                    @endforeach
+  
+                </select>
+            </div> -->
 
 
             <div class="form-group">

@@ -24,6 +24,7 @@ class CreateAppartementTable extends Migration
             $table->string('prix_l');
             $table->string('piece');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -27,10 +27,12 @@
   
                 </select>
             </div>
+            
             <div class="form-group">
                 <label>Prénom</label>
                 <input type="text" name="prenom" required class="form-control" id="exampleFormControlInput1" placeholder="{{$locataire->prenom}}" value="{{$locataire->prenom}}">
             </div>
+
             <div class="form-group">
                 <label>Nom</label>
                 <input type="text" name="nom" required class="form-control" id="exampleFormControlInput1" placeholder="{{$locataire->nom}}"  value="{{$locataire->nom}}">

@@ -1,4 +1,4 @@
-version: "3"
+version: "3.5"
 services:
   app:
     build:
@@ -10,6 +10,8 @@ services:
     image: appartement
     container_name: appartement-app
     working_dir: /var/www/
+    ports:
+      - 8000:80
     volumes:
       - ./:/var/www
     networks:
@@ -25,30 +27,29 @@ services:
       MYSQL_USER: ${DB_USERNAME}
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
-    volumes:
-      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+    # volumes:
+    #   - ./docker-compose/mysql:/docker-entrypoint-initdb.d
     networks:
       - appartement
 
-  nginx:
-    image: nginx:alpine
-    container_name: appartement-nginx
-    ports:
-      - 8000:80
-    volumes:
-      - ./:/var/www
-      - ./docker-compose/nginx:/etc/nginx/conf.d/
-    networks:
-      - appartement
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: appartement-nginx
+  #   ports:
+  #     - 8000:80
+  #   volumes:
+  #     - ./:/var/www
+  #     - ./docker-compose/nginx:/etc/nginx/conf.d/
+  #   networks:
+  #     - appartement
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    ports:
-      - "81:80"
+  adminer:
+    image: adminer
+    restart: always
     networks:
       - appartement
-    depends_on:
-      - db
+    ports:
+      - "81:8080"
 
 
 networks:

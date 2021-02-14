@@ -18,9 +18,11 @@ class CreateMaintenanceTable extends Migration
             $table->string('type');
             $table->string('locataire_name');
             $table->string('appartement_id');
+            $table->string('locataire_id');
             $table->string('honoraire');
             $table->string('materiel');
             $table->timestamps();
+            $table->softDeletes();
         });
         // Schema::table('maintenances', function ($table) {
         //     $table->foreign('locataire_id')->references('id')

@@ -51,11 +51,12 @@
                             </table>
 
 
-             </div>
-             <a class="btn btn-lg btn-primary" href="{{route('maintenance.form')}}" role="button"> Enregistrer une maintenance</a>
+                                </div>
+                                <a class="btn btn-lg btn-primary" href="{{route('maintenance.form')}}" role="button"> Enregistrer une maintenance</a>
 
-            </div>
-
+                               </div>
+                         </div>
+                  </div>
 
               </div>
         </div>  
