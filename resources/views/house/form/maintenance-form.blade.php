@@ -17,7 +17,7 @@
         @csrf
 
         <div class="form-group">
-                <label>Appartement </label>
+             <label>Appartement </label>
          
                 <select class="custom-select mr-sm-2" name="appartement_id" id="inlineFormCustomSelect">
                    
@@ -37,13 +37,13 @@
                    
                     <option selected>Choisir locataire</option>
                     @foreach ($locataires as $locataire)    
-                    <option value= '{{ $locataire->prenom }} {{$locataire->nom}}' > {{ $locataire->prenom }} {{$locataire->nom }}</option>                  
+                    <option value='{{ $locataire->prenom}} {{$locataire->nom}} {{ $locataire->id }} ' > {{ $locataire->prenom }} {{$locataire->nom }}</option>                  
                     @endforeach
   
                 </select>
             </div>
 
-
+<!-- 
             <div class="form-group">
                 <label>Identifiant locataire </label>
                 <select class="custom-select mr-sm-2" name="locataire_id" id="inlineFormCustomSelect">
@@ -51,7 +51,7 @@
                     <option value= '{{ $locataire->id }}' > {{ $locataire->id }} <==> {{ $locataire->prenom }} {{$locataire->nom }}</option>                  
                     @endforeach
                 </select>
-            </div>
+            </div> -->
 
 
             <div class="form-group">
@@ -65,7 +65,6 @@
 
                 </select>
             </div>
-            
 
             <div class="form-group">
                 <label>Materiel</label>

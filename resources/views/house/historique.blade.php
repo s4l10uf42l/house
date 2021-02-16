@@ -30,7 +30,7 @@
                                 <th scope="col">Telephone</th>
                                 <th scope="col">Appartement</th>
                                 <th scope="col"> profession </th>
-                                <th scope="col">  </th>
+                                <th scope="col">  Fin du contract</th>
                                 <th scope="col">  </th>
 
                                 </tr>
@@ -46,6 +46,7 @@
                                     <td> {{ $locataire->contact }}</td>
                                     <td>{{ $locataire-> appartement_id}}</td>
                                    <td> {{ $locataire->profession }}</td>
+                                   <td> {{ $locataire->deleted_at }}</td>
                                    <!-- <td>  <a href="{{route('house.detail' ,$locataire)}}" class="btn btn-success btn-sm btn-block text-white" > Plus de details </a>   </td> -->
                                    <!-- <td>
                                   <p>
@@ -102,7 +103,7 @@
                                 <td>{{ $facture->deb_mois}} au {{ $facture->fin_mois}}</td>
                                 <td>  <a href="{{route('house.detail_quittance' ,$facture)}}"  class="btn btn-success btn-sm btn-block text-white"> Voir la quittance </a>   </td>
                                <!-- <td> <a href="{{route('edit.facture',$facture)}}" class="btn btn-info btn-sm btn-block text-white">Modication</a> </td> -->
-                               <td>
+                               <!-- <td>
                               <p>
                                 <a href="{{route('edit.facture',$facture)}}" class="btn btn-info btn-sm btn-block text-white">Modifier</a>
                                     <span>
@@ -113,7 +114,7 @@
                                             </form>
                                     </span>
                                 </p>
-                              <td>
+                              <td> -->
 
                             </tr>
                             @endforeach
@@ -151,7 +152,7 @@
                                     <td>{{ $maintenance->honoraire}} </td>
                                     <td> {{ $maintenance->materiel}}</td>
                                     
-                                    <td>
+                                    <!-- <td>
                                     <p>
                                         <a href="{{route('edit.maintenance', $maintenance)}}" class="btn btn-info btn-sm btn-block text-white">Edit</a>
                                             <span>
@@ -162,7 +163,7 @@
                                                     </form>
                                             </span>
                                         </p>
-                                    <td>
+                                    <td> -->
                                 </tr>
                                 @endforeach
                           

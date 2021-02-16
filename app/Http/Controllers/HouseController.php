@@ -102,7 +102,7 @@ class HouseController extends Controller
         ->with(compact('appartements'))
         ->with(compact('locataires'));
 
-        //return view('house.form.maintenance-form', compact('maintenance'));
+        return view('house.form.maintenance-form', compact('maintenance'));
     }
 
     public function add_appartement(Request $request)
@@ -208,30 +208,37 @@ class HouseController extends Controller
 
     public function store_facture(Request $request)
     {
+        $name=explode(" ", $request->locataire_name);
+        // var_dump($name);
         $facture = new Facture;
         $facture->type = $request->type;
-        $facture->locataire_name = $request->locataire_name;
-        $locataire_id = Locataire::where('appartement_id', $request->appartement_id)->get();
-        var_dump($locataire_id);
-    //     $facture->appartement_id = $request->appartement_id;
-    //     $facture->locataire_id = $request->locataire_id;
-    //     $facture->deb_mois = $request->deb_mois;
-    //     $facture->fin_mois = $request->fin_mois;
-    //     $facture->save();
-    //     $factures = Facture::latest()->get();
-    //     return view('house.facture', compact('factures'));
-     }
+        $facture->locataire_name = $name[0]." ".$name[1];
+        // $locataire_id = Locataire::where('appartement_id', $request->appartement_id)->get();
+        // var_dump($locataire_id);
+        $facture->appartement_id = $request->appartement_id;
+        $facture->locataire_id = $name[2];
+        $facture->deb_mois = $request->deb_mois;
+        $facture->fin_mois = $request->fin_mois;
+        $facture->save();
+        $factures = Facture::latest()->get();
+        return view('house.facture', compact('factures'));
+    //  
+
+    }
 
 
     public function store_maintenance(Request $request)
-    {
+    {   
+        
+        $name=explode(" ", $request->locataire_name);
+
         $maintenance = new Maintenance;
         $maintenance->type = $request->type;
-        $maintenance->locataire_name = $request->locataire_name;
+        $maintenance->locataire_name = $name[0]." ".$name[1];
         $maintenance->appartement_id = $request->appartement_id;
+        $maintenance->locataire_id = $name[2];
         $maintenance->honoraire = $request->honoraire;
         $maintenance->materiel = $request->materiel;
-
         $maintenance->save();
         $maintenances = Maintenance::latest()->get();
         return view('house.maintenance', compact('maintenances'));
@@ -318,17 +325,25 @@ class HouseController extends Controller
        public function destroy_locataire(Locataire $locataire)
         {
 
-
+            $factures = Facture::where('locataire_id', $locataire->id )->get();
+            $maintenances= Maintenance::where('locataire_id', $locataire->id )->get();
             
 
-            $factures = Facture::where('locataire_id', $locataire->id )->get()->first();
-            $maintenance= Maintenance::where('locataire_id', $locataire->id )->get()->first();
-            $locataires = locataire::latest()->get();
-            // $locataire->delete();
-            // var_dump($maintenance);
-            // return view('house.locataire', compact('locataires'));
+            foreach ($factures as $facture) {
+                // code
+                $facture->delete();
+                }
+                
+            foreach ($maintenances as $maintenance) {
+                // code
+                $maintenance->delete();
+                }    
+            $locataire->delete();
+
+       $locataires = locataire::latest()->get();
+        return view('house.locataire', compact('locataires'));
        }
-        
+         
 
        public function edit_facture(Facture $facture)
        {

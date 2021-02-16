@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
-
+// Auth::routes();
+Auth::routes([ 'register' => false ]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Only authenticated members can access these routes

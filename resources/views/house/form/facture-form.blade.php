@@ -47,21 +47,21 @@
                 <select class="custom-select mr-sm-2" name="locataire_name" id="inlineFormCustomSelect">
                    
                     @foreach ($locataires as $locataire)    
-                    <option value= '{{ $locataire->prenom }} {{$locataire->nom}}' > {{ $locataire->prenom }} {{$locataire->nom }}</option>                  
+                    <option  value='{{ $locataire->prenom}} {{$locataire->nom}} {{ $locataire->id }} '  > {{ $locataire->prenom }} {{$locataire->nom }}</option>                  
                     @endforeach
   
                 </select>
             </div>
 
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label>Identifiant locataire </label>
                 <select class="custom-select mr-sm-2" name="locataire_id" id="inlineFormCustomSelect">
                     @foreach ($locataires as $locataire)    
                     <option value= '{{ $locataire->id }}' > {{ $locataire->id }} <==> {{ $locataire->prenom }} {{$locataire->nom }}</option>                  
                     @endforeach
                 </select>
-            </div>
+            </div> -->
 
 
 
