@@ -26,6 +26,8 @@
                                 <th scope="col">Compteur electricite</th>
                                 <th scope="col">Compteur D'eau</th>
                                 <th scope="col">type </th>
+                                <th scope="col"> </th>
+                                <th scope="col"> </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,6 +39,12 @@
                                     <td> {{ $appartement->numb_elec }}</td>
                                     <td>{{ $appartement->numb_eau }}</td>
                                    <td> {{ $appartement->type }}</td>
+
+                                   <td>
+                                  <p>
+                                    <a href="{{route('edit.un_appartement',$appartement)}}" class="btn btn-info btn-sm btn-block text-white">Modifier</a>
+                                    </p>
+                                  <td>
                                 </tr>
                                 @endforeach
                           
@@ -44,7 +52,7 @@
                             </table>
 
                      
-        <a class="btn btn-lg btn-primary" href="{{route('appartement.form')}}" role="button"> Ajouter un locataire</a>
+                             <a class="btn btn-lg btn-primary" href="{{route('appartement.form')}}" role="button"> Ajouter un locataire</a>
 
 
              </div>

@@ -26,11 +26,16 @@ Route::group(['middleware' => ['auth']], function () {
 
    Route::get('posts/create', 'PostController@create')->name('posts.create');
    Route::post('posts', 'PostController@store')->name('posts.store');
+
    Route::get('posts/{post}/edit', 'PostController@edit')->name('posts.edit');
    Route::delete('posts/{post}/destroy', 'PostController@destroy')->name('posts.destroy');
    Route::patch('posts/{post}/update', 'PostController@update')->name('posts.update');
 
    // Form 
+
+   Route::get('un_appartement/{appartement}', 'HouseController@edit_appartement')->name('edit.un_appartement');
+   Route::patch('un_appartement', 'HouseController@update_un_appartement')->name('update.un_appartement');
+
    Route::get('add_appartement', 'HouseController@add_appartement')->name('appartement.form');
    Route::post('add_appartement', 'HouseController@store_appartement')->name('store.appartement');
 

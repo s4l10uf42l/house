@@ -27,12 +27,23 @@ class HouseController extends Controller
         
     }
 
+    public function edit_appartement(Appartement $appartement )
+    {
+        return View::make('house.form.un_appartement-edit')
+        ->with(compact('appartement'));
+    }
+
+    
+
+
+
     public function locataire( Request $request)
     {
         $locataires = locataire::latest()->get();
         return view('house.locataire', compact('locataires'));
         
     }
+
 
     /**
      * Display the specified resource.
@@ -178,6 +189,31 @@ class HouseController extends Controller
         return view('house.detail_quittance', compact('unefacture'));
     }
 
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Appartement  $appartement
+     * @return \Illuminate\Http\Response
+     */
+
+
+    public function update_un_appartement( Request $request, Appartement $appartement)
+    {
+ 
+        $appartement->noma = $request->noma;
+        $appartement->nom = $request->nom;
+        $appartement->numb_elec = $request->numb_elec;
+        $appartement->numb_eau = $request->numb_eau;
+        $appartement->type = $request->type;
+        $appartement->prix = $request->prix;
+        $appartement->prix_l = $request->prix_l;
+        $appartement->piece = $request->piece;
+        $appartement->save();
+        return redirect()->route('house.locataire');
+        
+    }
 
 
     public function store_appartement(Request $request)
