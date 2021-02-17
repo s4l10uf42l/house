@@ -1,10 +1,10 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
     <title>Contact</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
@@ -12,7 +12,7 @@
 
 <body>
 
-    <div class="container mt-5"> -->
+    <div class="container mt-5">
    
                 <p><strong>CONTRAT DE LOCATION -- HABITATION (*)</strong></p>
                 <p>Entre les soussign&eacute;s&nbsp;:</p>
@@ -77,7 +77,7 @@
                 <p>(*) . Code des obligations civiles et Commerciales.</p>
                 <p>Loi N&deg; 84 &ndash; 12 du 04 janvier 1984</p>
 
-    <!-- </div>
+    </div>
 
 
     <div class="d-flex justify-content-end mb-4">
@@ -88,4 +88,4 @@
 </body>
 
 </html>
- -->
+
