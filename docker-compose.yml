@@ -6,7 +6,7 @@ services:
         user: saliou
         uid: 1000
       context: ./
-      dockerfile: Dockerfile
+  #     dockerfile: Dockerfile
     image: appartement
     container_name: appartement-app
     working_dir: /var/www/
@@ -54,4 +54,4 @@ services:
 
 networks:
   appartement:
-    driver: bridge
+    # external: true

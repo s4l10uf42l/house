@@ -1,10 +1,20 @@
 FROM kamerk22/laravel-alpine:7.4-mysql-nginx
 RUN apk add --no-cache nodejs npm 
+
+RUN apk add --no-cache php \
+    php-common \
+    php-pdo \
+    php-zip \
+    php-phar \
+    php-iconv \
+    php-cli 
+
+
 COPY . /var/www/
 
 
-RUN apk add --no-cache php-zip 
-
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ --allow-untrusted gnu-libiconv
+ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 
 RUN composer install --no-dev 
 RUN chmod -R 777 /var/www/storage
