@@ -19,6 +19,7 @@ ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 RUN composer install --no-dev 
 RUN chmod -R 777 /var/www/storage
 
+EXPOSE 80 443
 
 # FROM php:7.2-fpm
 
