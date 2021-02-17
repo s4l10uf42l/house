@@ -199,9 +199,9 @@ class HouseController extends Controller
      */
 
 
+
     public function update_un_appartement( Request $request, Appartement $appartement)
     {
- 
         $appartement->noma = $request->noma;
         $appartement->nom = $request->nom;
         $appartement->numb_elec = $request->numb_elec;

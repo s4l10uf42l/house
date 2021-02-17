@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
    // Form 
 
    Route::get('un_appartement/{appartement}', 'HouseController@edit_appartement')->name('edit.un_appartement');
-   Route::patch('un_appartement', 'HouseController@update_un_appartement')->name('update.un_appartement');
+   Route::patch('un_appartement/{appartement}', 'HouseController@update_un_appartement')->name('update.un_appartement');
 
    Route::get('add_appartement', 'HouseController@add_appartement')->name('appartement.form');
    Route::post('add_appartement', 'HouseController@store_appartement')->name('store.appartement');
