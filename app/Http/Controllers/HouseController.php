@@ -211,7 +211,7 @@ class HouseController extends Controller
         $appartement->prix_l = $request->prix_l;
         $appartement->piece = $request->piece;
         $appartement->save();
-        return redirect()->route('house.locataire');
+        return redirect()->route('house.appartement');
         
     }
 
