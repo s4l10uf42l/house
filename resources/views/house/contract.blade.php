@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contact</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-    <div class="container mt-5">
-   
                 <p>  <h4> <strong>CONTRAT DE LOCATION -- HABITATION (*)</strong> </h4></p>
                 <p>Entre les soussign&eacute;s&nbsp;:</p>
                 <p>Mr El hadji Fallou NDIAYE, titulaire de la carte d&rsquo;identit&eacute; N&deg; 1200 1972 00737 d&eacute;livr&eacute;e &agrave; Dakar le 27/04/2017, propri&eacute;taire de l&rsquo;immeuble sis aux HLM 1 Villa n&deg; 211 Dakar.</p>
@@ -75,11 +61,4 @@
                 <p><br /><br /><br /><br /></p>
                 <p>(*) . Code des obligations civiles et Commerciales.</p>
                 <p>Loi N&deg; 84 &ndash; 12 du 04 janvier 1984</p> 
-
-    </div>
-
-    <script src="{{ asset('js/app.js') }}" type="text/js"></script>
-</body>
-
-</html>
 
